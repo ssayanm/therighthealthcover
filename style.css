@@ -151,6 +151,7 @@ footer {
 @media (max-width: 767px) {
   .box {
     padding-bottom: 0px;
+    flex-direction: column-reverse;
   }
   .box .text {
     flex: 100%;
