@@ -6,6 +6,7 @@
   --primaryColorAlt: #f8c601;
   --grey: #888888;
   --black: #101010;
+  --maxWidth: 730px;
 }
 
 html {
@@ -17,26 +18,51 @@ body {
   background: var(--primaryColor);
   font-family: "Montserrat", sans-serif;
   color: var(--black);
-  font-size: 18px;
+  font-size: 1.2rem;
+}
+
+strong {
+  font-size: 1.3rem;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
 }
 
 .container {
-  max-width: 730px;
+  max-width: var(--maxWidth);
   margin: auto;
+  overflow: hidden;
 }
 
-#buttons {
-  padding: 20px 0 40px 0;
-}
 a {
   text-decoration: none;
   color: inherit;
 }
 
+ul {
+  line-height: 1.5em;
+  margin: 10px 0 15px;
+  padding: 0;
+}
+
 li {
-  /* list-style-type: "&#10003"; */
-  content: "&#10003";
-  padding-inline-start: 1ch;
+  list-style: none;
+  position: relative;
+  padding: 0 0 0 30px;
+}
+
+li.checkmark::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 5px;
+  width: 4px;
+  height: 12px;
+  border: solid var(--secondaryColor);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 
 .btn {
@@ -55,34 +81,97 @@ li {
   background-color: var(--secondaryColor);
 }
 
+#buttons {
+  padding: 20px 0 40px 0;
+}
+
+#texts,
+#buttons,
+#logo {
+  padding: 25px 15px;
+}
+
+#logo {
+  padding-top: 40px;
+}
+
+.para {
+  padding-top: 10px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.box .text {
+  flex: 50%;
+}
+
+.box .imgbox {
+  flex: 50%;
+  margin-bottom: 20px;
+}
+
+.age {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .agebox {
   background-color: var(--secondaryColor);
-  width: 75px;
+  width: 89px;
   text-align: center;
   color: var(--primaryColor);
   padding: 3px;
   margin: 10px;
   font-weight: bold;
+  flex: 50%;
+  font-weight: bold;
+}
+
+.agebox:hover {
+  background-color: var(--primaryColorAlt);
 }
 
 footer {
   background-color: var(--secondaryColor);
-  max-width: 730px;
+
   margin: auto;
   text-align: center;
   color: var(--primaryColor);
-  padding: 5px;
+  padding: 10px 5px;
 }
 
 /* Media Query: Large Smartphone (Vertical) */
-@media (max-width: 600px) {
-  section#home a {
-    top: 1rem;
-    left: 1rem;
+@media (max-width: 767px) {
+  .box {
+    padding-bottom: 0px;
+  }
+  .box .text {
+    flex: 100%;
   }
 
-  .menu-bars {
-    top: 0.5rem;
-    right: 1rem;
+  .box .imgbox {
+    flex: 100%;
+  }
+
+  .btn {
+    font-size: 1.2rem;
+  }
+
+  .age {
+    flex-wrap: wrap;
+  }
+
+  .agebox {
+    flex: 25%;
+  }
+  .btn {
+    width: 90%;
   }
 }
